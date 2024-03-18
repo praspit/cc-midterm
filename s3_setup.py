@@ -10,7 +10,6 @@ def main():
     with open(conf_file, "r") as f:
         lines = f.readlines()
         for line in lines:
-            contents += line
             if "define( 'WP_DEBUG', false );" in line:
                 contents += (f"define( 'AS3CF_SETTINGS', serialize( array (\n")
                 contents += (f"  'provider' => 'aws',\n")
@@ -21,6 +20,8 @@ def main():
                 contents += (f"  'copy-to-s3' => true,\n")
                 contents += (f"  'serve-from-s3' => true,\n")
                 contents += (f") ) );\n")
+            else:
+                contents += line
 
     with open(conf_file, "w") as f:
         f.write(contents)
