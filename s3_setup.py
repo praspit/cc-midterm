@@ -2,9 +2,6 @@ import sys
 conf_file = "/var/www/html/wordpress/wp-config.php"
 
 def main():
-    if len(sys.argv) < 5:
-        print("Usage: python3 gen_cred_file.py <access_key> <secret_key> <bucket_name> <region>")
-        sys.exit(1)
     access_key = sys.argv[1]
     secret_key = sys.argv[2]
     bucket_name = sys.argv[3]
